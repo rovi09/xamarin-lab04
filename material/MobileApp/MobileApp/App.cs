@@ -7,8 +7,13 @@ namespace MobileApp
 	{
 		public App()
 		{
-			/**** #1 */
-			MainPage = new ContentPage { Content = new Label { Text = "Hello, World!", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center } };
+			MainPage = new ContentPage { 
+				Content = new Label {
+					Text = "Hello, World!, clase xamarin",
+					VerticalOptions = LayoutOptions.Center, 
+					HorizontalOptions = LayoutOptions.Center
+				} 
+			};
 		}
 	}
 }
