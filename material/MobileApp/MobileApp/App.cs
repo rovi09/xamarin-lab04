@@ -3,33 +3,39 @@ using Xamarin.Forms;
 
 namespace MobileApp
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
 		public App()
 		{
-			var label = new Label
-			{
-				Text = "Hello, World!",
-				FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-			};
+			Button openHello = new Button { Text = "Go to Hello" };
+			var openControls = new Button { Text = "Go to Controls" };
 
-			var button = new Button { Text = "Click me" };
-			int i = 0;
-			button.Clicked += (s, e) => {
-				button.Text = "Hello, World! " + i++;
-			};
-
-			MainPage = new ContentPage
-			{
-				BackgroundColor = Color.Transparent,
-				Content = new StackLayout
+			var page = new ContentPage {
+				Content = new StackLayout 
 				{
-					BackgroundColor = Color.Transparent,
-					VerticalOptions = LayoutOptions.Center,
-					HorizontalOptions = LayoutOptions.Center,
-					Children = { label, button }
+					Orientation = StackOrientation.Vertical,
+					Children = { 
+						openHello,
+						openControls,
+					}
 				}
 			};
+
+			openHello.Command = new Command(() => page.Navigation.PushAsync(new HelloWorldPage() { Username = "Pablo" } ));
+			openControls.Command = new Command(() => page.Navigation.PushAsync(new Views.ControlsPage()));
+
+			View titleView = new StackLayout { 
+				HorizontalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.Center,
+				Children = { 
+					new Label { Text = "Welcome to Xamarin" }
+				}
+			};
+
+			NavigationPage.SetTitleView(page, titleView);
+
+			MainPage = new NavigationPage(page);
+			// new HelloWorldPage();
 		}
 	}
 }
