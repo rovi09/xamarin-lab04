@@ -34,8 +34,22 @@ namespace MobileApp
 
 			NavigationPage.SetTitleView(page, titleView);
 
-			MainPage = new NavigationPage(page);
+			//MainPage = new NavigationPage(page);
+			MainPage = new NavigationPage(new Views.ToDosPage());
+
 			// new HelloWorldPage();
+		}
+
+		protected override void OnStart()
+		{
+		}
+
+		protected override void OnSleep()
+		{
+		}
+
+		protected override void OnResume()
+		{
 		}
 	}
 }
