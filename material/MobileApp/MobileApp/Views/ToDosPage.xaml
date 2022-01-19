@@ -13,7 +13,7 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="True" />
-                            <Label Text="{Binding}" />
+                            <Label Text="{Binding Title}" />
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
