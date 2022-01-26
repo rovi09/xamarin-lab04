@@ -21,7 +21,7 @@ namespace MobileApp
 				}
 			};
 
-			openHello.Command = new Command(() => page.Navigation.PushAsync(new HelloWorldPage() { Username = "Pablo" } ));
+			openHello.Command = new Command(() => page.Navigation.PushAsync(new Views.HelloWorldPage() { Username = "Pablo" } ));
 			openControls.Command = new Command(() => page.Navigation.PushAsync(new Views.ControlsPage()));
 
 			View titleView = new StackLayout { 
@@ -35,7 +35,7 @@ namespace MobileApp
 			NavigationPage.SetTitleView(page, titleView);
 
 			//MainPage = new NavigationPage(page);
-			MainPage = new NavigationPage(new Views.ToDosPage());
+			MainPage = new Views.MainPage();
 
 			// new HelloWorldPage();
 		}
